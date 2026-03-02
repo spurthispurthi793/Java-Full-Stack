@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+import java.util.Stack;
+import java.util.Vector;
+public class MagicalFoodFestival {
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+
+      ArrayList<String> foodstall = new ArrayList<>();
+      foodstall.add("indian");
+      foodstall.add("Itian");
+      foodstall.add("Chinese");
+
+      System.out.println("Enter the Dishes:");
+      Vector<String> dishes = new Vector<>();
+      dishes.add("Biryani");
+      dishes.add("Pizza");
+      dishes.add("Noodles");
+
+      System.out.println("Enter the number of people in the queue:");
+      Queue<String> CustomerQueue = new LinkedList<>();
+      CustomerQueue.add("Rahul");
+      CustomerQueue.add("sonu");
+      CustomerQueue.add("Ramu");
+
+      Stack<String> LastVisited = new Stack<>();
+      System.out.println("lastvisited tracking stall");
+
+      Stack<String> dailyHistory = new Stack<>();
+      System.out.println("Dialy History of stall");
+    }
+}
