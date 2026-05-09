@@ -1,0 +1,82 @@
+CREATE TABLE Customers (
+    customer_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    city VARCHAR(100),
+    phone VARCHAR(15)
+);
+
+CREATE TABLE Restaurants (
+    restaurant_id INT PRIMARY KEY,
+    restaurant_name VARCHAR(100),
+    city VARCHAR(100),
+    rating DECIMAL(2,1)
+);
+
+CREATE TABLE Food_Items (
+    food_id INT PRIMARY KEY,
+    food_name VARCHAR(100),
+    price DECIMAL(10,2),
+    restaurant_id INT,
+    FOREIGN KEY (restaurant_id) REFERENCES Restaurants(restaurant_id)
+);
+
+CREATE TABLE Orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    food_id INT,
+    quantity INT,
+    order_date DATE,
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
+    FOREIGN KEY (food_id) REFERENCES Food_Items(food_id)
+);
+
+INSERT INTO Customers VALUES
+(1, 'Aishwarya', 'Bangalore', '9876543210'),
+(2, 'Arun', 'Chennai', '9876501234'),
+(3, 'Kiran', 'Hyderabad', '9123456780'),
+(4, 'Anjali', 'Bangalore', '9988776655'),
+(5, 'Rahul', 'Mumbai', '9012345678');
+
+INSERT INTO Restaurants VALUES
+(1, 'Pizza Palace', 'Bangalore', 4.5),
+(2, 'Spicy Hub', 'Chennai', 4.2),
+(3, 'Burger Point', 'Hyderabad', 4.0),
+(4, 'Food Corner', 'Bangalore', 4.3);
+
+INSERT INTO Food_Items VALUES
+(101, 'Veg Pizza', 250, 1),
+(102, 'Chicken Burger', 180, 3),
+(103, 'Paneer Pizza', 300, 1),
+(104, 'Fried Rice', 150, 2),
+(105, 'Chicken Biryani', 220, 2),
+(106, 'Pasta', 120, 4);
+
+INSERT INTO Orders VALUES
+(1001, 1, 101, 2, '2026-05-01'),
+(1002, 2, 105, 1, '2026-05-02'),
+(1003, 3, 102, 3, '2026-05-03'),
+(1004, 4, 103, 1, '2026-05-04'),
+(1005, 5, 106, 2, '2026-05-05');
+
+SELECT * FROM Food_Items;
+
+SELECT * FROM Food_Items
+WHERE price > 200;
+
+SELECT * FROM Food_Items
+WHERE price > 150 AND restaurant_id = 2;
+
+SELECT * FROM Restaurants
+WHERE city = 'Chennai' OR city = 'Bangalore';
+
+SELECT * FROM Customers
+WHERE name LIKE 'A%';
+
+SELECT * FROM Food_Items
+WHERE food_name LIKE '%Pizza%';
+
+SELECT * FROM Food_Items
+WHERE price BETWEEN 100 AND 300;
+
+SELECT * FROM Food_Items
+ORDER BY price DESC;
