@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript DOM Practice</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h2 id="text">Hello World</h2>
+
+    <button onclick="changeText()">
+        Change Text
+    </button>
+
+    <br><br>
+
+    <button onclick="changeBackground()">
+        Change Background Color
+    </button>
+
+    <br><br>
+
+    <input type="text" id="userInput" placeholder="Enter text">
+
+    <button onclick="showInput()">
+        Show Input Value
+    </button>
+
+    <p id="output"></p>
+
+    <script>
+
+        function changeText() {
+            document.getElementById("text").innerHTML =
+            "Text Changed Successfully";
+        }
+
+        function changeBackground() {
+            document.body.style.backgroundColor = "lightblue";
+        }
+
+        function showInput() {
+
+            let value =
+            document.getElementById("userInput").value;
+
+            document.getElementById("output").innerHTML =
+            "You Entered: " + value;
+        }
+
+    </script>
+
+</body>
+</html>
