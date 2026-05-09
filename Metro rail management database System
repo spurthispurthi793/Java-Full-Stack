@@ -1,0 +1,69 @@
+CREATE TABLE Stations (
+    station_id INT PRIMARY KEY,
+    station_name VARCHAR(100),
+    location VARCHAR(100),
+    platforms INT
+);
+
+CREATE TABLE Metro_Trains (
+    train_id INT PRIMARY KEY,
+    train_name VARCHAR(100),
+    capacity INT,
+    station_id INT,
+    FOREIGN KEY (station_id) REFERENCES Stations(station_id)
+);
+
+ALTER TABLE Stations
+ADD opening_year INT;
+
+ALTER TABLE Metro_Trains
+RENAME TO Trains;
+
+INSERT INTO Stations
+VALUES (1, 'Majestic', 'Bangalore Central', 6, 2011);
+
+INSERT INTO Stations
+VALUES (2, 'Indiranagar', 'East Bangalore', 4, 2013);
+
+INSERT INTO Stations
+VALUES (3, 'Whitefield', 'Whitefield Area', 5, 2023);
+
+INSERT INTO Stations
+VALUES (4, 'KR Puram', 'KR Puram Junction', 3, 2022);
+
+INSERT INTO Stations
+VALUES (5, 'MG Road', 'City Center', 4, 2011);
+
+INSERT INTO Trains
+VALUES (101, 'Namma Metro Express', 1200, 1);
+
+INSERT INTO Trains
+VALUES (102, 'Purple Line Rapid', 1000, 3);
+
+INSERT INTO Trains
+VALUES (103, 'Green Line Superfast', 1100, 5);
+
+UPDATE Trains
+SET capacity = 1300
+WHERE train_id = 101;
+
+DELETE FROM Stations
+WHERE station_id = 2;
+
+SELECT * FROM Stations;
+
+SELECT * FROM Trains;
+
+CREATE USER metro_staff IDENTIFIED BY 'metro123';
+
+GRANT SELECT
+ON Stations
+TO metro_staff;
+
+GRANT INSERT
+ON Trains
+TO metro_staff;
+
+REVOKE INSERT
+ON Trains
+FROM metro_staff;
