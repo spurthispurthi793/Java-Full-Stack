@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Student Utility App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background-color: #f0f0f0;
+        }
+
+        nav {
+            background-color: #222;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            background: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 6px;
+            margin: 5px 0;
+        }
+
+        button {
+            padding: 8px 12px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+
+        footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 5px;
+}
+    </style>
+    
+</head>
+
+<body>
+
+<nav>
+    <a href="#grade">Grade</a>
+    <a href="#palindrome">Palindrome</a>
+    <a href="#number">Number</a>
+    <a href="#login">Login</a>
+</nav>
+
+
+<section id="grade">
+    <h2>Student Grade Calculator</h2>
+    <input type="text" id="name" placeholder="Student Name">
+    <input type="number" id="m1" placeholder="Mark 1">
+    <input type="number" id="m2" placeholder="Mark 2">
+    <input type="number" id="m3" placeholder="Mark 3">
+    <input type="number" id="m4" placeholder="Mark 4">
+    <input type="number" id="m5" placeholder="Mark 5">
+    <button onclick="calculate()">Calculate</button>
+    <p id="gradeResult"></p>
+</section>
+
+
+<section id="palindrome">
+    <h2>Palindrome Checker</h2>
+    <input type="text" id="word" placeholder="Enter word">
+    <button onclick="checkPalindrome()">Check</button>
+    <p id="palResult"></p>
+</section>
+
+
+<section id="number">
+    <h2>Number Analyzer</h2>
+    <input type="number" id="num" placeholder="Enter number">
+    <button onclick="analyze()">Analyze</button>
+    <p id="numResult"></p>
+    <p id="seriesResult"></p>
+</section>
+
+ 
+<section id="login">
+    <h2>Simple Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p id="loginResult"></p>
+</section>
+
+<script>
+function calculate() {
+    let studentName = document.getElementById("name").value;
+
+    let marks = [
+        Number(m1.value),
+        Number(m2.value),
+        Number(m3.value),
+        Number(m4.value),
+        Number(m5.value)
+    ];
+
+    let total = 0;
+    for (let i = 0; i < marks.length; i++) {
+        total += marks[i];
+    }
+
+    let avg = total / 5;
+    let grade;
+
+    if (avg >= 90) grade = "A+";
+    else if (avg >= 75) grade = "A";
+    else if (avg >= 60) grade = "B";
+    else if (avg >= 50) grade = "C";
+    else grade = "Fail";
+
+    document.getElementById("gradeResult").innerText =
+        "Name: " + studentName +
+        " | Total: " + total +
+        " | Average: " + avg.toFixed(2) +
+        " | Grade: " + grade;
+}
+
+function checkPalindrome() {
+    let text = word.value;
+    let reverse = "";
+
+    for (let i = text.length - 1; i >= 0; i--) {
+        reverse += text[i];
+    }
+
+    if (text === reverse)
+        palResult.innerText = "It is a Palindrome";
+    else
+        palResult.innerText = "Not a Palindrome";
+}
+
+function analyze() {
+    let n = Number(num.value);
+    let message = "";
+
+    if (n > 0) message += "Positive ";
+    else if (n < 0) message += "Negative ";
+    else message += "Zero ";
+
+    if (n % 2 === 0) message += "Even";
+    else message += "Odd";
+
+    numResult.innerText = message;
+
+    let numbers = "";
+    for (let i = 1; i <= n; i++) {
+        numbers += i + " ";
+    }
+    seriesResult.innerText = numbers;
+}
+
+function login() {
+    if (username.value === "admin" && password.value === "12345")
+        loginResult.innerText = "Login Successful";
+    else
+        loginResult.innerText = "Invalid Credentials";
+}
+</script>
+
+<footer>
+    <p>© 2026 Smart Student Utility Web App</p>
+    <p>Created by Pragathi</p>
+</footer>
+
+
+</body>
+</html>
