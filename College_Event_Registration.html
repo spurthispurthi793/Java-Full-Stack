@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Event Registration</title>
+
+    <script>
+        function showSummary() {
+
+            let events = [];
+
+            if(document.getElementById("dance").checked)
+                events.push("Dance");
+
+            if(document.getElementById("coding").checked)
+                events.push("Coding");
+
+            if(document.getElementById("singing").checked)
+                events.push("Singing");
+
+            document.getElementById("summary").innerHTML =
+            "Selected Events: " + events.join(", ");
+        }
+    </script>
+
+</head>
+<body>
+
+    <h1>College Event Registration</h1>
+
+    <form>
+
+        <label>Student Name:</label><br>
+        <input type="text" required>
+        <br><br>
+
+        <label>Email:</label><br>
+        <input type="email"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        required>
+        <br><br>
+
+        <label>Department:</label><br>
+        <input type="text" required>
+        <br><br>
+
+        <h3>Select Events</h3>
+
+        <input type="checkbox" id="dance" onclick="showSummary()"> Dance<br>
+
+        <input type="checkbox" id="coding" onclick="showSummary()"> Coding<br>
+
+        <input type="checkbox" id="singing" onclick="showSummary()"> Singing<br><br>
+
+        <div id="summary"></div>
+
+        <h3>Audio Invitation</h3>
+
+        <audio controls>
+            <source src="invitation.mp3" type="audio/mpeg">
+        </audio>
+
+        <br><br>
+
+        <label>Upload Performance Sample:</label><br>
+
+        <input type="file" accept=".mp3,.mp4" required>
+
+        <br><br>
+
+        <input type="submit" value="Register">
+        <input type="reset" value="Reset">
+
+    </form>
+
+</body>
+</html>
