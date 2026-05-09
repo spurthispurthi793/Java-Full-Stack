@@ -1,0 +1,84 @@
+[2:53 pm, 09/05/2026] Spurthi..: <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile Page</title>
+</head>
+<body>
+
+    <!-- Heading and Text Formatting -->
+    <h1>My Profile</h1>
+    <p>
+        Hello! My name is <b>Spurthi</b>.  
+        I am a <i>student</i> who loves <u>learning new technologies</u>.
+    </p>
+
+    <p>
+        This is a <strong>simple profile page</strong> created using
+        <em>basic HTML tags</em>.
+    </p>
+
+    <!-- Lists -->
+    <h3>My Hobbies</h3>
+    <ul>
+        <li>Reading</li>
+        <li>Listening to music</li>
+        <li>Coding</li>
+        <li>Gaming</li>
+        <li>Sports</li>
+    </ul>
+
+    <h3>My Goals</h3>
+    <ol>
+        <li>Learn AI</li>
+        <li>Become a web developer</li>
+    </ol>
+    <!-- Image -->
+    <h3>I like to do</h3>
+    <img src="image1.jpeg" alt="I love gaming" width="150"><br><br>
+    <video src="RACE.mp4" controls loop autoplay width="400"></video><br><br>
+
+    <!-- Link -->
+    <p>
+        Visit my favorite website:
+        <a href="https://en.wikipedia.org/wiki/Esports" target="_blank">Google</a>
+    </p>
+    <a href="mailto:pragathiyuki0911@gmail.com">Email Me</a>
+
+    <!-- Table -->
+    <h2>Education Details</h2>
+    <table border="1">
+        <tr>
+            <th>Class</th>
+            <th>College</th>
+            <th>Year</th>
+        </tr>
+        <tr>
+            <td>12th</td>
+            <td>Ascent pre university</td>
+            <td>2022</td>
+        </tr>
+        <tr>
+            <td>BE</td>
+            <td>SAIT(Vtu)</td>
+            <td>2026</td>
+        </tr>
+    </table>
+
+    <!-- Form -->
+    <h2>Contact Me</h2>
+    <form>
+        <label>Name:</label><br>
+        <input type="text" name="name"><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email"><br><br>
+
+        <label>Message:</label><br>
+        <textarea rows="4" cols="30"></textarea><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
